@@ -61,7 +61,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="5">
+                        <td colspan="6">
                             <h5 class="text-center">No Agents found.</h5>
                         </td>
                     </tr>
