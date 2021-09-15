@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,4 @@ Route::get('/', function () {
 
 Route::resource('/agent',AgentController ::class);
 Route::resource('/patient',PatientController ::class);
+Route::resource('/service',ServiceController ::class);
