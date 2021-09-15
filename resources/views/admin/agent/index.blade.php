@@ -9,7 +9,7 @@
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
             <h3 class="card-title">Agent List</h3>
-            <a href="#" class="btn btn-primary">Add Agent</a>
+            <a href="{{ route('agent.create') }}" class="btn btn-primary">Add Agent</a>
             </div>
         </div>
         <!-- /.card-header -->
@@ -28,20 +28,22 @@
                 </tr>
                 </thead>
                 <tbody>
+                @if($agents->count())
+                    @foreach ($agents as $agent)
                 <tr>
-                    <td>1.</td>
-                    <td>Update software</td>
+                    <td>{{$agent->id}}</td>
+                    <td>{{$agent->name}}</td>
                     <td>
-                        0172654356
+                        {{$agent->phone}}
                     </td>
                     <td>
-                        uttara 3
+                        {{$agent->address}}
                     </td>
                     <td>
-                        90786547483
+                        {{$agent->nid}}
                     </td>
                     <td>
-                        admin@gmail.com
+                        {{$agent->email}}
                     </td>
 
                     <td class="d-flex">
@@ -56,6 +58,15 @@
 
 
                 </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="5">
+                            <h5 class="text-center">No Agents found.</h5>
+                        </td>
+                    </tr>
+
+                @endif
 
 
 

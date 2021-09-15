@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Agent;
 use Illuminate\Http\Request;
+use Session;
 
 
 class AgentController extends Controller
@@ -15,7 +16,8 @@ class AgentController extends Controller
      */
     public function index()
     {
-        return view('admin.agent.index');
+        $agents = Agent::orderBy('created_at', 'DESC')->paginate(20);
+        return view('admin.agent.index', compact('agents'));
     }
 
     /**
@@ -25,7 +27,7 @@ class AgentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.agent.create');
     }
 
     /**
@@ -36,7 +38,27 @@ class AgentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required:agents',
+            'phone'=> 'required',
+
+        ]);
+
+        //store
+
+
+        $agent = Agent::create([
+            'name'=> $request->name,
+            'phone'=>$request->phone,
+            'nid'=>$request->nid,
+            'email'=>$request->email,
+            'address'=>$request->address,
+
+
+        ]);
+
+        Session::flash('success','Agent Added successfully');
+        return redirect()->back();
     }
 
     /**
