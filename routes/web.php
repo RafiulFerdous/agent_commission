@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\BillController;
+use App\Http\Controllers\FinalInvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +32,7 @@ Route::get('/', function () {
 Route::resource('/agent',AgentController ::class);
 Route::resource('/patient',PatientController ::class);
 Route::resource('/service',ServiceController ::class);
+Route::resource('/bill',BillController ::class);
+Route::resource('/finalinvoice',FinalInvoiceController::class);
+
+Route::get('/invoices/{id}',[BillController::class,'invoice']);
