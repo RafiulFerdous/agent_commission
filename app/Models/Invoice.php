@@ -19,4 +19,9 @@ class Invoice extends Model
         'discounts',
         'amount',
     ];
+
+
+    public function agent(){
+        return $this->belongsTo(Agent::class);
+    }
 }

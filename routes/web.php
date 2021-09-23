@@ -25,7 +25,7 @@ use App\Http\Controllers\FinalInvoiceController;
 
 
 Route::get('/', function () {
-    return view('admin.index');
+    return view('auth.login');
 });
 
 
@@ -33,6 +33,10 @@ Route::resource('/agent',AgentController ::class);
 Route::resource('/patient',PatientController ::class);
 Route::resource('/service',ServiceController ::class);
 Route::resource('/bill',BillController ::class);
-Route::resource('/finalinvoice',FinalInvoiceController::class);
+Route::get('/finalinvoice/{id}',[FinalInvoiceController::class, 'invoice']);
 
 Route::get('/invoices/{id}',[BillController::class,'invoice']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

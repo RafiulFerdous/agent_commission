@@ -5,11 +5,12 @@
 
 
 
+
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="card-title">Invoice List</h3>
-                <a href="{{route('finalinvoice.index')}}" class="btn btn-primary">Print Invoice</a>
+                <a href="#" class="btn btn-primary">Print Invoice</a>
             </div>
         </div>
         <!-- /.card-header -->

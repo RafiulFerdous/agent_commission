@@ -20,7 +20,7 @@ class BillController extends Controller
     {
         $bills = Bill::all();
        return view ('admin.bill.index',compact('bills'));
-       // return view ('admin.bill.create');
+
     }
 
     /**
@@ -79,8 +79,8 @@ class BillController extends Controller
      */
     public function show(Bill $bill, $id)
     {
-       // $invoices=Invoice::where('bills_id','=',$id)->get();
-       // return view('admin.bill.invoice',compact('invoices'));
+       $invoices=Invoice::where('bills_id','=',$id)->get();
+        return view('admin.bill.finalinvoice',compact('invoices'));
     }
 
     /**
@@ -119,7 +119,8 @@ class BillController extends Controller
 
     public function invoice($id)
     {
+        $bills = Bill::all();
         $invoices=Invoice::where('bills_id','=',$id)->get();
-        return view('admin.bill.invoice',compact('invoices'));
+        return view('admin.bill.invoice',compact(['invoices','bills']));
     }
 }

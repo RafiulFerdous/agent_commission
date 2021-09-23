@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-12">
                 <h4>
-                    <i class="fas fa-globe"></i> AdminLTE, Inc.
+                    <i class="fas fa-globe"></i> Organization, Inc.
                     <small class="float-right">Date: 2/10/2014</small>
                 </h4>
             </div>
@@ -34,7 +34,9 @@
             <div class="col-sm-4 invoice-col">
                 To
                 <address>
-                    <strong>John Doe</strong><br>
+
+
+                    <strong></strong><br>
                     795 Folsom Ave, Suite 600<br>
                     San Francisco, CA 94107<br>
                     Phone: (555) 539-1037<br>
@@ -59,42 +61,26 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Qty</th>
-                        <th>Product</th>
-                        <th>Serial #</th>
+                        <th style="width: 10px">#</th>
+                        <th>Service Name</th>
                         <th>Description</th>
-                        <th>Subtotal</th>
+                        <th>Rate</th>
+                        <th>Discount</th>
+                        <th>Amount</th>
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($invoices as $key=>$invoice)
                     <tr>
-                        <td>1</td>
-                        <td>Call of Duty</td>
-                        <td>455-981-221</td>
-                        <td>El snort testosterone trophy driving gloves handsome</td>
-                        <td>$64.50</td>
+                        <td>{{++$key}} </td>
+                        <td>{{$invoice->services}} </td>
+                        <td>{{$invoice->descriptions}} </td>
+                        <td>{{$invoice->rates}} </td>
+                        <td>{{$invoice->discounts}} </td>
+                        <td>{{$invoice->amount}} </td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Need for Speed IV</td>
-                        <td>247-925-726</td>
-                        <td>Wes Anderson umami biodiesel</td>
-                        <td>$50.00</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Monsters DVD</td>
-                        <td>735-845-642</td>
-                        <td>Terry Richardson helvetica tousled street art master</td>
-                        <td>$10.70</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Grown Ups Blue Ray</td>
-                        <td>422-568-642</td>
-                        <td>Tousled lomo letterpress</td>
-                        <td>$25.99</td>
-                    </tr>
+                    @endforeach
+
                     </tbody>
                 </table>
             </div>
@@ -105,17 +91,7 @@
         <div class="row">
             <!-- accepted payments column -->
             <div class="col-6">
-                <p class="lead">Payment Methods:</p>
-                <img src="../../dist/img/credit/visa.png" alt="Visa">
-                <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-                <img src="../../dist/img/credit/american-express.png" alt="American Express">
-                <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
 
-                <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                    Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-                    plugg
-                    dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-                </p>
             </div>
             <!-- /.col -->
             <div class="col-6">

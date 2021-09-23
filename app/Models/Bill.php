@@ -20,6 +20,10 @@ class Bill extends Model
         return $this->belongsTo(Agent::class);
     }
 
+    public function patient(){
+        return $this->belongsTo(patient::class);
+    }
+
 
 
 }

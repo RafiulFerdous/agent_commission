@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 
 class FinalInvoiceController extends Controller
@@ -13,7 +14,7 @@ class FinalInvoiceController extends Controller
      */
     public function index()
     {
-        return view('admin.bill.finalinvoice');
+
     }
 
     /**
@@ -45,7 +46,7 @@ class FinalInvoiceController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -80,5 +81,11 @@ class FinalInvoiceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function invoice($id)
+    {
+        $invoices=Invoice::where('bills_id','=',$id)->get();
+        return view('admin.bill.finalinvoice',compact('invoices'));
     }
 }

@@ -19,6 +19,7 @@
                 <tr>
                     <th style="width: 10px">#</th>
                     <th>Agent Name</th>
+                    <th>Patient Name</th>
                     <th>Bill Id</th>
                     <th>Action</th>
 
@@ -28,15 +29,24 @@
 
                 @foreach($bills as $key=>$data)
                     <tr><td>{{++$key}} </td>
-                        <td>{{$data->name}} </td>
+                        <?php
+
+                        $names = \App\Models\Agent::find($key);
+                        $patient_names = \App\Models\Patient::find($key);
+
+                        ?>
+                        <td>{{ !empty($names->name)?$names->name:"Not Available" }} </td>
+                        <td>{{ !empty($patient_names->name)?$patient_names->name:"Not Available" }} </td>
                         <td><a href="/invoices/{{$data->id}}">{{$data->id}} </a></td>
+
+
                         <td class="d-flex">
-                            <a href="#" class="btn btn-sm btn-primary mr-1"> <i class="fas fa-edit"></i> </a>
                             <form action="#" class="mr-1" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </button>
                             </form>
+                            <a href="{{url('finalinvoice/'.$data->id)}}" rel="noopener" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
                             {{-- <a href="{{ route('category.show', [$category->id]) }}" class="btn btn-sm btn-success mr-1"> <i class="fas fa-eye"></i> </a> --}}
                         </td>
                     </tr>

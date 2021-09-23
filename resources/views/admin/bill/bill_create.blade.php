@@ -57,7 +57,7 @@
                     <div class="form-group">
                         <label>Select Agent</label>
 
-                        <select name="agent" id="agent" class="form-control">
+                        <select name="name" id="name" class="form-control">
                             <option value="" style="display: none" selected>Select Agent</option>
                             @foreach($agents as $a)
                                 <option value="{{ $a->id }}"> {{ $a->name }} </option>
@@ -69,7 +69,7 @@
 
                     <div class="form-group">
                         <label>Select Patient</label>
-                        <select name="patient" id="patient" class="form-control">
+                        <select name="patient_name" id="patient_name" class="form-control">
                             <option value="" style="display: none" selected>Select patient</option>
                             @foreach($patients as $p)
                                 <option value="{{ $p->id }}"> {{ $p->name }} </option>
